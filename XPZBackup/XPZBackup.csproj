@@ -44,16 +44,25 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Serialization" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Arquivos.cs" />
+    <Compile Include="Classes\Common.cs" />
+    <Compile Include="Classes\Configs.cs" />
+    <Compile Include="Classes\DataBase.cs" />
     <Compile Include="frmXPZBackup.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmXPZBackup.Designer.cs">
       <DependentUpon>frmXPZBackup.cs</DependentUpon>
     </Compile>
+    <Compile Include="Classes\ProcessadorXml.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmXPZBackup.resx">
+      <DependentUpon>frmXPZBackup.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -63,6 +72,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="ExportaObjetosGX15.msbuild" />
+    <None Include="ExportaObjetosGX16.msbuild" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -75,6 +86,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Comandos.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

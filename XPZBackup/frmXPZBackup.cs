@@ -185,7 +185,17 @@ namespace XPZBackup
 
         private void btnExecutarBackup_Click(object sender, EventArgs e)
         {
+            DialogResult res = Common.Pergunta("O backup será iniciado, deseja desligar a máquina no final? (Clique em Cancelar para cancelar o backup)");
 
+            if (res != DialogResult.Cancel)
+            {
+                //Executar backup
+
+                if (res == DialogResult.Yes)
+                {
+                    Prompt.DesligarMaquina();
+                }
+            }
         }
     }
 }

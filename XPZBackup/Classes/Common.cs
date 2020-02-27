@@ -10,6 +10,14 @@ namespace XPZBackup.Classes
 {
     public class Common
     {
+        public static string CaminhoMSBUILD
+        {
+            get
+            {
+                return @"C:\Windows\Microsoft.NET\Framework\v4.0.30319\csc.exe";
+            }
+        }
+
         public static string CaminhoRede 
         { 
             get 

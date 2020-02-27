@@ -203,6 +203,7 @@
             this.chkAutenticacaoWindows.TabIndex = 3;
             this.chkAutenticacaoWindows.Text = "Autenticação do Windows";
             this.chkAutenticacaoWindows.UseVisualStyleBackColor = true;
+            this.chkAutenticacaoWindows.CheckedChanged += new System.EventHandler(this.chkAutenticacaoWindows_CheckedChanged);
             // 
             // label3
             // 

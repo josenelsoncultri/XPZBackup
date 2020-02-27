@@ -178,6 +178,11 @@ namespace XPZBackup
             }
         }
 
+        private void chkAutenticacaoWindows_CheckedChanged(object sender, EventArgs e)
+        {
+            txtUsuario.Enabled = txtSenha.Enabled = !chkAutenticacaoWindows.Checked;
+        }
+
         private void btnExecutarBackup_Click(object sender, EventArgs e)
         {
 

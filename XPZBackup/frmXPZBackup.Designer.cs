@@ -340,6 +340,7 @@
             this.btnExecutarBackup.TabIndex = 1;
             this.btnExecutarBackup.Text = "Executar Backup";
             this.btnExecutarBackup.UseVisualStyleBackColor = true;
+            this.btnExecutarBackup.Click += new System.EventHandler(this.btnExecutarBackup_Click);
             // 
             // frmXPZBackup
             // 

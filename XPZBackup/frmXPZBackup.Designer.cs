@@ -101,6 +101,7 @@
             this.btnTrocarVersao.TabIndex = 5;
             this.btnTrocarVersao.Text = "Trocar versão das bases";
             this.btnTrocarVersao.UseVisualStyleBackColor = true;
+            this.btnTrocarVersao.Click += new System.EventHandler(this.btnTrocarVersao_Click);
             // 
             // cmbVersaoGeneXus
             // 
@@ -156,6 +157,7 @@
             this.btnAdicionarBase.TabIndex = 3;
             this.btnAdicionarBase.Text = "Adicionar Base";
             this.btnAdicionarBase.UseVisualStyleBackColor = true;
+            this.btnAdicionarBase.Click += new System.EventHandler(this.btnAdicionarBase_Click);
             // 
             // dgvBases
             // 
@@ -173,6 +175,7 @@
             this.dgvBases.ReadOnly = true;
             this.dgvBases.Size = new System.Drawing.Size(897, 303);
             this.dgvBases.TabIndex = 0;
+            this.dgvBases.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvBases_RowHeaderMouseDoubleClick);
             // 
             // tabSQLServer
             // 
@@ -284,9 +287,11 @@
             this.txtDiasParaBackup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDiasParaBackup.Location = new System.Drawing.Point(3, 128);
+            this.txtDiasParaBackup.MaxLength = 3;
             this.txtDiasParaBackup.Name = "txtDiasParaBackup";
             this.txtDiasParaBackup.Size = new System.Drawing.Size(903, 20);
             this.txtDiasParaBackup.TabIndex = 4;
+            this.txtDiasParaBackup.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDiasParaBackup_KeyPress);
             // 
             // label6
             // 

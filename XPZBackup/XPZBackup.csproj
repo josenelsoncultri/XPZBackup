@@ -51,6 +51,12 @@
     <Compile Include="Classes\Common.cs" />
     <Compile Include="Classes\Configs.cs" />
     <Compile Include="Classes\DataBase.cs" />
+    <Compile Include="frmVersao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVersao.Designer.cs">
+      <DependentUpon>frmVersao.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmXPZBackup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +66,9 @@
     <Compile Include="Classes\ProcessadorXml.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmVersao.resx">
+      <DependentUpon>frmVersao.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmXPZBackup.resx">
       <DependentUpon>frmXPZBackup.cs</DependentUpon>
     </EmbeddedResource>
@@ -72,8 +81,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="ExportaObjetosGX15.msbuild" />
-    <None Include="ExportaObjetosGX16.msbuild" />
+    <None Include="ExportaObjetosGX15.msbuild">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="ExportaObjetosGX16.msbuild">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -88,7 +101,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Comandos.sql" />
+    <Content Include="Comandos.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -12,7 +12,7 @@ namespace XPZBackup.Classes
 {
     public class DataBase
     {
-        private const string NOME_PROCEDURE = "SP_LISTA_OBJETOS";
+        /*private const string NOME_PROCEDURE = "SP_LISTA_OBJETOS";
 
         public static void CriarProcedure(string server, string database, string userid, string password, bool AutenticacaoWindows)
         {
@@ -77,7 +77,7 @@ namespace XPZBackup.Classes
                     cmmCreate.ExecuteNonQuery();
                 }
             }
-        }
+        }*/
 
         //public static string ExecutarProcedure(string server, string database, string userid, string password, bool AutenticacaoWindows)
         public static string ExecutarComandos(string nomeBanco, string quantidadeDiasBackup, SqlConnection cnn)
@@ -102,7 +102,7 @@ namespace XPZBackup.Classes
             {
                 cnn.Open();*/
 
-            string filePath = Common.CaminhoProcedure;
+            string filePath = Common.CaminhoComandos;
             string comandos = "";
 
             using (StreamReader sr = new StreamReader(filePath))

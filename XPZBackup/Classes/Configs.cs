@@ -25,8 +25,13 @@ namespace XPZBackup.Classes
         public Configs()
         {
             this.Bases = new List<Base>();
+
+            this.Servidor = "";
             this.Usuario = "Producao";
             this.Senha = "1";
+
+            this.NomeProgramador = "";
+            this.CaminhoLocalBackup = "";
             this.QuantidadeDiasBackup = 15;
         }
     }

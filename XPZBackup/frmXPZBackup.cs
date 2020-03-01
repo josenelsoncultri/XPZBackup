@@ -189,12 +189,7 @@ namespace XPZBackup
 
             if (res != DialogResult.Cancel)
             {
-                //Executar backup
-
-                if (res == DialogResult.Yes)
-                {
-                    Prompt.DesligarMaquina();
-                }
+                Tarefas.Executar(configuracoes, res == DialogResult.Yes);
             }
         }
     }

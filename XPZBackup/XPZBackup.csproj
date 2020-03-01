@@ -52,6 +52,7 @@
     <Compile Include="Classes\Configs.cs" />
     <Compile Include="Classes\DataBase.cs" />
     <Compile Include="Classes\Prompt.cs" />
+    <Compile Include="Classes\Tarefas.cs" />
     <Compile Include="frmVersao.cs">
       <SubType>Form</SubType>
     </Compile>

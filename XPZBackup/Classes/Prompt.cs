@@ -10,9 +10,14 @@ namespace XPZBackup.Classes
 {
     public class Prompt
     {
-        public static void ExecutarBackup(Base b, string listaObjetos)
+        public static void ExecutarBackup(Configs configuracoes, Base b, string listaObjetos)
         {
+            string caminhoXPZ = "";
 
+            ProcessStartInfo psi = new ProcessStartInfo();
+            psi.FileName = Common.CaminhoMSBUILD;
+            psi.Arguments = "/p:CaminhoXPZ=\"" + "" + "\";CaminhoKB=\"" + b.Caminho.Trim() + "\";ExportarTudo=\"" + b.BackupKBInteira.ToString().Trim() + "\";ListaObjetos=\"" + listaObjetos.Trim() + "\"";
+            Process.Start(psi).WaitForExit();
         }
 
         public static void DesligarMaquina()

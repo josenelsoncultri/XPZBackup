@@ -80,7 +80,7 @@ namespace XPZBackup.Classes
         }*/
 
         //public static string ExecutarProcedure(string server, string database, string userid, string password, bool AutenticacaoWindows)
-        public static string ExecutarComandos(string nomeBanco, string quantidadeDiasBackup, SqlConnection cnn)
+        public static string ExecutarComandos(string nomeBanco, int quantidadeDiasBackup, SqlConnection cnn)
         {
             string retorno = "";
 
@@ -114,7 +114,7 @@ namespace XPZBackup.Classes
             }
 
             comandos = comandos.Replace("<BANCO_DADOS>", nomeBanco);
-            comandos = comandos.Replace("<QUANTIDADE_DIAS_BACKUP>", quantidadeDiasBackup.Trim());
+            comandos = comandos.Replace("<QUANTIDADE_DIAS_BACKUP>", quantidadeDiasBackup.ToString().Trim());
 
             using (SqlCommand cmm = new SqlCommand(comandos, cnn))
             {

@@ -48,7 +48,7 @@ namespace XPZBackup.Classes
             string retorno = "";
 
             XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.Load(Caminho);
+            xmlDoc.Load(Caminho + "knowledgebase.connection");
 
             retorno = xmlDoc.DocumentElement.GetElementsByTagName("DBName")[0].InnerText.Trim();
 

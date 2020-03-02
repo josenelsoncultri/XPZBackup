@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using System.Diagnostics;
+using System.IO;
 
 namespace XPZBackup.Classes
 {
@@ -13,11 +14,18 @@ namespace XPZBackup.Classes
         public static void ExecutarBackup(Configs configuracoes, Base b, string listaObjetos)
         {
             string caminhoXPZ = "";
+            caminhoXPZ += configuracoes.CaminhoLocalBackup + (configuracoes.CaminhoLocalBackup.EndsWith(@"\") ? "" : @"\");
+            caminhoXPZ += Common.NomeXPZ(configuracoes.NomeProgramador, ProcessadorXml.ObterNomeBanco(b.Caminho));
 
             ProcessStartInfo psi = new ProcessStartInfo();
             psi.FileName = Common.CaminhoMSBUILD;
-            psi.Arguments = "/p:CaminhoXPZ=\"" + "" + "\";CaminhoKB=\"" + b.Caminho.Trim() + "\";ExportarTudo=\"" + b.BackupKBInteira.ToString().Trim() + "\";ListaObjetos=\"" + listaObjetos.Trim() + "\"";
+            psi.Arguments = "\"" + Common.CaminhoScriptMSBUILD(b.VersaoGeneXus) + "\"" + " /p:CaminhoXPZ=" + caminhoXPZ.Trim() + ";CaminhoKB=" + b.Caminho.Trim() + ";ExportarTudo=" + b.BackupKBInteira.ToString().Trim() + ";ListaObjetos=\"" + listaObjetos.Trim() + "\"";
             Process.Start(psi).WaitForExit();
+
+            if (File.Exists(caminhoXPZ))
+            {
+                Arquivos.MoverParaRede(caminhoXPZ, configuracoes.NomeProgramador);
+            }
         }
 
         public static void DesligarMaquina()

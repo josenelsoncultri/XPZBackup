@@ -189,8 +189,24 @@ namespace XPZBackup
 
             if (res != DialogResult.Cancel)
             {
-                Tarefas.Executar(configuracoes, res == DialogResult.Yes);
+                List<string> retorno = Tarefas.Executar(configuracoes, res == DialogResult.Yes);
+                if (retorno.Count > 0)
+                {
+                    string mensagensRetorno = "";
+
+                    foreach (string s in retorno)
+                    {
+                        mensagensRetorno += s + Environment.NewLine;
+                    }
+
+                    Common.MensagemErro(mensagensRetorno);
+                }
             }
+        }
+
+        private void frmXPZBackup_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SalvarConfiguracoes();
         }
     }
 }

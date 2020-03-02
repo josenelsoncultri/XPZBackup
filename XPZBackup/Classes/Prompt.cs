@@ -32,7 +32,7 @@ namespace XPZBackup.Classes
         {
             ProcessStartInfo psi = new ProcessStartInfo();
             psi.FileName = "shutdown.exe";
-            psi.Arguments = "-s -t 3600";
+            psi.Arguments = "-s -t 15";
             Process.Start(psi);
         }
     }

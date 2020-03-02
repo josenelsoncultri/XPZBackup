@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -66,6 +67,11 @@ namespace XPZBackup.Classes
         public static void MensagemErro(string mensagem)
         {
             MessageBox.Show(mensagem, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        public static void MensagemInfo(string mensagem)
+        {
+            MessageBox.Show(mensagem, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         public static DialogResult Pergunta(string mensagem, bool IncluirBotaoCancelar = false)

@@ -29,11 +29,34 @@ namespace XPZBackup
                     bool desligarNoFinal = args.Contains<string>("/desligar");
 
                     Configs configuracoes = ProcessadorXml.Ler();
-                    Tarefas.Executar(configuracoes, desligarNoFinal);
+                    List<string> retorno = Tarefas.Executar(configuracoes, desligarNoFinal);
+                    if (retorno.Count > 0)
+                    {
+                        string mensagensRetorno = "";
+
+                        foreach (string s in retorno)
+                        {
+                            mensagensRetorno += s + Environment.NewLine;
+                        }
+
+                        Common.MensagemErro(mensagensRetorno);
+                    }
                 }
                 else if (args.Contains<string>("/ajuda"))
                 {
-                    
+                    string mensagem = "";
+                    mensagem += "---------------------------------------------------------------------" + Environment.NewLine;
+                    mensagem += "Parâmetros do XPZBackup:" + Environment.NewLine;
+                    mensagem += "/seminterface: Inicializa o programa sem a interface, utilizando as configurações feitas pela interface" + Environment.NewLine;
+                    mensagem += "/desligar: Usado junto com o parâmetro /seminterface, desliga a máquina no final do processo" + Environment.NewLine;
+                    mensagem += "/ajuda: Exibe essa mensagem de ajuda" + Environment.NewLine;
+                    mensagem += "---------------------------------------------------------------------" + Environment.NewLine;
+
+                    Common.MensagemInfo(mensagem);
+                }
+                else
+                {
+                    Common.MensagemErro("Parâmetros inválidos, verifique os parâmetros informados!");
                 }
             }
         }

@@ -354,6 +354,7 @@
             this.MinimumSize = new System.Drawing.Size(957, 574);
             this.Name = "frmXPZBackup";
             this.Text = "Backup XPZ";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmXPZBackup_FormClosing);
             this.tabConfiguracoes.ResumeLayout(false);
             this.tabBases.ResumeLayout(false);
             this.tabBases.PerformLayout();

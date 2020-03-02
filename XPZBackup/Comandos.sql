@@ -33,6 +33,7 @@ WITH CTE_TIPOS_DADOS (TipoDado)
 					(
 						'Procedure, Procedure'
 					)
+					AND EV.EntityVersionName NOT LIKE 'Audit%'
 					FOR XML PATH('')						
 				),
 				1, 
@@ -49,6 +50,7 @@ WITH CTE_TIPOS_DADOS (TipoDado)
 						(
 							'Procedure, Procedure'
 						)
+						AND EV.EntityVersionName NOT LIKE 'Audit%'
 						FOR XML PATH('')							
 					)
 				) - 1), ', ', ',')

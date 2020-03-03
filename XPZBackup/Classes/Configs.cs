@@ -37,6 +37,7 @@ namespace XPZBackup.Classes
             }
             this.Usuario = "Producao";
             this.Senha = "1";
+            this.AutenticacaoWindows = true;
 
             this.NomeProgramador = "";
             this.CaminhoLocalBackup = "";

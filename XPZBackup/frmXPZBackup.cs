@@ -189,6 +189,7 @@ namespace XPZBackup
 
             if (res != DialogResult.Cancel)
             {
+                SalvarConfiguracoes();
                 List<string> retorno = Tarefas.Executar(configuracoes, res == DialogResult.Yes);
                 if (retorno.Count > 0)
                 {

@@ -19,7 +19,7 @@ namespace XPZBackup.Classes
 
             ProcessStartInfo psi = new ProcessStartInfo();
             psi.FileName = Common.CaminhoMSBUILD;
-            psi.Arguments = "\"" + Common.CaminhoScriptMSBUILD(b.VersaoGeneXus) + "\"" + " /p:CaminhoXPZ=" + caminhoXPZ.Trim() + ";CaminhoKB=" + b.Caminho.Trim() + ";ExportarTudo=" + b.BackupKBInteira.ToString().Trim() + ";ListaObjetos=\"" + listaObjetos.Trim() + "\"";
+            psi.Arguments = "\"" + Common.CaminhoScriptMSBUILD(b.VersaoGeneXus) + "\"" + " /p:CaminhoXPZ=" + caminhoXPZ.Trim() + ";CaminhoKB=" + b.Caminho.Trim() + ";ExportarTudo=" + b.BackupKBInteira.ToString().Trim() + (listaObjetos.Trim() != "" ? ";ListaObjetos=\"" + listaObjetos.Trim() + "\"" : "");
             Process.Start(psi).WaitForExit();
 
             if (File.Exists(caminhoXPZ))

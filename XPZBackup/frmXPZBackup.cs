@@ -112,7 +112,7 @@ namespace XPZBackup
             if (ValidarBase())
             {
                 Base b = new Base();
-                b.Caminho = txtBaseParaAdicionar.Text.Trim();
+                b.Caminho = txtBaseParaAdicionar.Text.Trim() + (txtBaseParaAdicionar.Text.Trim().EndsWith(@"\") ? "" : @"\");
                 b.BackupKBInteira = chkBackupKBInteira.Checked;
                 b.VersaoGeneXus = cmbVersaoGeneXus.Text.Trim();
 

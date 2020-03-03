@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using System.Xml.Serialization;
+using System.Net;
 
 namespace XPZBackup.Classes
 {
@@ -26,7 +27,14 @@ namespace XPZBackup.Classes
         {
             this.Bases = new List<Base>();
 
-            this.Servidor = "";
+            try
+            {
+                this.Servidor = Dns.GetHostName();
+            }
+            catch (Exception)
+            {
+                this.Servidor = "";
+            }
             this.Usuario = "Producao";
             this.Senha = "1";
 

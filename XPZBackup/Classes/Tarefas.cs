@@ -50,7 +50,10 @@ namespace XPZBackup.Classes
                     {
                         string listaObjetos = DataBase.ExecutarComandos(ProcessadorXml.ObterNomeBanco(b.Caminho), configuracoes.QuantidadeDiasBackup, cnn);
 
-                        Prompt.ExecutarBackup(configuracoes, b, listaObjetos);
+                        if (listaObjetos.Trim() != "")
+                        {
+                            Prompt.ExecutarBackup(configuracoes, b, listaObjetos);
+                        }
                     }
                 }
 

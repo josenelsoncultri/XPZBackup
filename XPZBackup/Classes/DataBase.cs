@@ -128,17 +128,19 @@ namespace XPZBackup.Classes
                         if (sdr.Read())
                         {
                             retorno = sdr[0].ToString();
-                            if (retorno.Substring(retorno.Length - 1, 1) == ";")
+                            if (retorno.Trim() != "")
                             {
-                                retorno = retorno.Substring(0, retorno.Length - 1);
-                            }
+                                if (retorno.Substring(retorno.Length - 1, 1) == ";")
+                                {
+                                    retorno = retorno.Substring(0, retorno.Length - 1);
+                                }
 
-                            retorno = retorno.Replace("; ", ";");
+                                retorno = retorno.Replace("; ", ";");
+                            }
                         }
                     }
                 }
             }
-            //}
 
             return retorno;
         }

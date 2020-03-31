@@ -326,7 +326,6 @@
             this.txtCaminhoSalvarXPZ.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCaminhoSalvarXPZ.Location = new System.Drawing.Point(3, 30);
-            this.txtCaminhoSalvarXPZ.MaxLength = 30;
             this.txtCaminhoSalvarXPZ.Name = "txtCaminhoSalvarXPZ";
             this.txtCaminhoSalvarXPZ.Size = new System.Drawing.Size(903, 20);
             this.txtCaminhoSalvarXPZ.TabIndex = 0;

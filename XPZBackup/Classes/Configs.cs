@@ -19,7 +19,7 @@ namespace XPZBackup.Classes
         public string Senha { get; set; }
         public bool AutenticacaoWindows { get; set; }
 
-        public string NomeProgramador { get; set; }
+        public string CaminhoSalvarXPZ { get; set; }
         public string CaminhoLocalBackup { get; set; }
         public int QuantidadeDiasBackup { get; set; }
 
@@ -39,7 +39,7 @@ namespace XPZBackup.Classes
             this.Senha = "1";
             this.AutenticacaoWindows = true;
 
-            this.NomeProgramador = "";
+            this.CaminhoSalvarXPZ = "";
             this.CaminhoLocalBackup = "";
             this.QuantidadeDiasBackup = 15;
         }

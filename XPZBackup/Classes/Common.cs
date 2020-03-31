@@ -40,13 +40,13 @@ namespace XPZBackup.Classes
             return retorno;
         }
 
-        public static string CaminhoRede 
+        /*public static string CaminhoRede 
         { 
             get 
             {
                 return @"\\sqlserver\Desenvolvimento\BKPGX\";
             } 
-        }
+        }*/
 
         public static string CaminhoComandos
         {
@@ -80,11 +80,12 @@ namespace XPZBackup.Classes
             return MessageBox.Show(mensagem, "Confirmar", buttons, MessageBoxIcon.Question);
         }
 
-        public static string NomeXPZ(string NomeProgramador, string NomeBase)
+        //public static string NomeXPZ(string NomeProgramador, string NomeBase)
+        public static string NomeXPZ(string NomeBase)
         {
             string retorno = "";
 
-            retorno += NomeProgramador.Trim() + "_";
+            //retorno += NomeProgramador.Trim() + "_";
             retorno += NomeBase.Trim() + "_";
             retorno += DateTime.Now.Year.ToString().PadLeft(4, '0');
             retorno += DateTime.Now.Month.ToString().PadLeft(2, '0');

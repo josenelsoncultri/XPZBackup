@@ -56,7 +56,7 @@ namespace XPZBackup
             chkAutenticacaoWindows.Checked = configuracoes.AutenticacaoWindows;
             txtUsuario.Enabled = txtSenha.Enabled = !configuracoes.AutenticacaoWindows;
 
-            txtNomeProgramador.Text = configuracoes.NomeProgramador.Trim();
+            txtCaminhoSalvarXPZ.Text = configuracoes.CaminhoSalvarXPZ.Trim();
             txtCaminhoBackup.Text = configuracoes.CaminhoLocalBackup.Trim();
             txtDiasParaBackup.Text = configuracoes.QuantidadeDiasBackup.ToString().Trim();
 
@@ -92,7 +92,7 @@ namespace XPZBackup
             configuracoes.Senha = txtSenha.Text.Trim();
             configuracoes.AutenticacaoWindows = chkAutenticacaoWindows.Checked;
 
-            configuracoes.NomeProgramador = txtNomeProgramador.Text.Trim();
+            configuracoes.CaminhoSalvarXPZ = txtCaminhoSalvarXPZ.Text.Trim();
             configuracoes.CaminhoLocalBackup = txtCaminhoBackup.Text.Trim();
             configuracoes.QuantidadeDiasBackup = Convert.ToInt32(txtDiasParaBackup.Text.Trim());
 
@@ -111,10 +111,12 @@ namespace XPZBackup
         {
             if (ValidarBase())
             {
-                Base b = new Base();
-                b.Caminho = txtBaseParaAdicionar.Text.Trim() + (txtBaseParaAdicionar.Text.Trim().EndsWith(@"\") ? "" : @"\");
-                b.BackupKBInteira = chkBackupKBInteira.Checked;
-                b.VersaoGeneXus = cmbVersaoGeneXus.Text.Trim();
+                Base b = new Base
+                {
+                    Caminho = txtBaseParaAdicionar.Text.Trim() + (txtBaseParaAdicionar.Text.Trim().EndsWith(@"\") ? "" : @"\"),
+                    BackupKBInteira = chkBackupKBInteira.Checked,
+                    VersaoGeneXus = cmbVersaoGeneXus.Text.Trim()
+                };
 
                 configuracoes.Bases.Add(b);
 

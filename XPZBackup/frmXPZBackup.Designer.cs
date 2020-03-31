@@ -52,7 +52,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtCaminhoBackup = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtNomeProgramador = new System.Windows.Forms.TextBox();
+            this.txtCaminhoSalvarXPZ = new System.Windows.Forms.TextBox();
             this.btnExecutarBackup = new System.Windows.Forms.Button();
             this.tabConfiguracoes.SuspendLayout();
             this.tabBases.SuspendLayout();
@@ -266,7 +266,7 @@
             this.tabOutrosParametros.Controls.Add(this.label6);
             this.tabOutrosParametros.Controls.Add(this.txtCaminhoBackup);
             this.tabOutrosParametros.Controls.Add(this.label5);
-            this.tabOutrosParametros.Controls.Add(this.txtNomeProgramador);
+            this.tabOutrosParametros.Controls.Add(this.txtCaminhoSalvarXPZ);
             this.tabOutrosParametros.Location = new System.Drawing.Point(4, 22);
             this.tabOutrosParametros.Name = "tabOutrosParametros";
             this.tabOutrosParametros.Size = new System.Drawing.Size(909, 437);
@@ -317,19 +317,19 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(3, 14);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(285, 13);
+            this.label5.Size = new System.Drawing.Size(139, 13);
             this.label5.TabIndex = 1;
-            this.label5.Text = "Nome do programador (assim como está na pasta da rede):";
+            this.label5.Text = "Caminho para salvar o XPZ:";
             // 
-            // txtNomeProgramador
+            // txtCaminhoSalvarXPZ
             // 
-            this.txtNomeProgramador.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtCaminhoSalvarXPZ.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtNomeProgramador.Location = new System.Drawing.Point(3, 30);
-            this.txtNomeProgramador.MaxLength = 30;
-            this.txtNomeProgramador.Name = "txtNomeProgramador";
-            this.txtNomeProgramador.Size = new System.Drawing.Size(903, 20);
-            this.txtNomeProgramador.TabIndex = 0;
+            this.txtCaminhoSalvarXPZ.Location = new System.Drawing.Point(3, 30);
+            this.txtCaminhoSalvarXPZ.MaxLength = 30;
+            this.txtCaminhoSalvarXPZ.Name = "txtCaminhoSalvarXPZ";
+            this.txtCaminhoSalvarXPZ.Size = new System.Drawing.Size(903, 20);
+            this.txtCaminhoSalvarXPZ.TabIndex = 0;
             // 
             // btnExecutarBackup
             // 
@@ -387,7 +387,7 @@
         private System.Windows.Forms.Button btnExecutarBackup;
         private System.Windows.Forms.TabPage tabOutrosParametros;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtNomeProgramador;
+        private System.Windows.Forms.TextBox txtCaminhoSalvarXPZ;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtCaminhoBackup;
         private System.Windows.Forms.Label label7;

@@ -23,7 +23,6 @@ namespace XPZBackup.Classes
                 if (configuracoes.Senha.Trim() == "") { retorno.Add("Informe a senha para conexão ao SQL Server!"); }
             }
 
-            if (configuracoes.NomeProgramador.Trim() == "") { retorno.Add("Informe o nome do programador (seu nome)!"); }
             if (configuracoes.CaminhoLocalBackup.Trim() == "") { retorno.Add("Informe o caminho local para salvar o XPZ!"); }
             if (configuracoes.QuantidadeDiasBackup <= 0) { retorno.Add("Deve ser feito o backup contando pelo menos 1 dia para trás!"); }
 

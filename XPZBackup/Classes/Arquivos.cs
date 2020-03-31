@@ -10,9 +10,9 @@ namespace XPZBackup.Classes
 {
     public class Arquivos
     {
-        public static void MoverParaRede(string caminhoLocalXPZ, string programador)
+        public static void MoverArquivo(string caminhoLocalXPZ, Configs configuracoes)
         {
-            string caminhoDestino = Common.CaminhoRede + programador.Trim() + @"\" + Path.GetFileName(caminhoLocalXPZ);
+            string caminhoDestino = configuracoes.CaminhoSalvarXPZ + (configuracoes.CaminhoSalvarXPZ.EndsWith(@"\") ? "" : @"\") + Path.GetFileName(caminhoLocalXPZ);
 
             if (File.Exists(caminhoDestino))
             {

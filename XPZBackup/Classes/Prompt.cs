@@ -15,24 +15,29 @@ namespace XPZBackup.Classes
         {
             string caminhoXPZ = "";
             caminhoXPZ += configuracoes.CaminhoLocalBackup + (configuracoes.CaminhoLocalBackup.EndsWith(@"\") ? "" : @"\");
-            caminhoXPZ += Common.NomeXPZ(configuracoes.NomeProgramador, ProcessadorXml.ObterNomeBanco(b.Caminho));
+            //caminhoXPZ += Common.NomeXPZ(configuracoes.NomeProgramador, ProcessadorXml.ObterNomeBanco(b.Caminho));
+            caminhoXPZ += Common.NomeXPZ(ProcessadorXml.ObterNomeBanco(b.Caminho));
 
-            ProcessStartInfo psi = new ProcessStartInfo();
-            psi.FileName = Common.CaminhoMSBUILD;
-            psi.Arguments = "\"" + Common.CaminhoScriptMSBUILD(b.VersaoGeneXus) + "\"" + " /p:CaminhoXPZ=" + caminhoXPZ.Trim() + ";CaminhoKB=" + b.Caminho.Trim() + ";ExportarTudo=" + b.BackupKBInteira.ToString().Trim() + (listaObjetos.Trim() != "" ? ";ListaObjetos=\"" + listaObjetos.Trim() + "\"" : "");
+            ProcessStartInfo psi = new ProcessStartInfo
+            {
+                FileName = Common.CaminhoMSBUILD,
+                Arguments = "\"" + Common.CaminhoScriptMSBUILD(b.VersaoGeneXus) + "\"" + " /p:CaminhoXPZ=" + caminhoXPZ.Trim() + ";CaminhoKB=" + b.Caminho.Trim() + ";ExportarTudo=" + b.BackupKBInteira.ToString().Trim() + (listaObjetos.Trim() != "" ? ";ListaObjetos=\"" + listaObjetos.Trim() + "\"" : "")
+            };
             Process.Start(psi).WaitForExit();
 
-            if (File.Exists(caminhoXPZ))
+            if (File.Exists(caminhoXPZ) && configuracoes.CaminhoSalvarXPZ.Trim() != "")
             {
-                Arquivos.MoverParaRede(caminhoXPZ, configuracoes.NomeProgramador);
+                Arquivos.MoverArquivo(caminhoXPZ, configuracoes);
             }
         }
 
         public static void DesligarMaquina()
         {
-            ProcessStartInfo psi = new ProcessStartInfo();
-            psi.FileName = "shutdown.exe";
-            psi.Arguments = "-s -t 15";
+            ProcessStartInfo psi = new ProcessStartInfo
+            {
+                FileName = "shutdown.exe",
+                Arguments = "-s -t 15"
+            };
             Process.Start(psi);
         }
     }

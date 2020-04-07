@@ -189,13 +189,9 @@ namespace XPZBackup
 
         private void btnExecutarBackup_Click(object sender, EventArgs e)
         {
-            DialogResult res = Common.Pergunta("O backup será iniciado, deseja desligar a máquina no final? (Clique em Cancelar para cancelar o backup)", true);
-            if (chkDesabilitarDesligamento.Checked)
-            {
-                res = Common.Pergunta("Deseja executar o backup?", false);
-            }
+            DialogResult res = (chkDesabilitarDesligamento.Checked ? Common.Pergunta("Deseja executar o backup?", false) : Common.Pergunta("O backup será iniciado, deseja desligar a máquina no final? (Clique em Cancelar para cancelar o backup)", true));
 
-            if (res != DialogResult.Cancel || (chkDesabilitarDesligamento.Checked && res == DialogResult.Yes))
+            if ((res != DialogResult.Cancel && !chkDesabilitarDesligamento.Checked) || (chkDesabilitarDesligamento.Checked && res == DialogResult.Yes))
             {
                 SalvarConfiguracoes();
                 List<string> retorno = Tarefas.Executar(configuracoes, res == DialogResult.Yes);

@@ -27,8 +27,13 @@ namespace XPZBackup
                 if (args.Contains<string>("/seminterface"))
                 {
                     bool desligarNoFinal = args.Contains<string>("/desligar");
-
                     Configs configuracoes = ProcessadorXml.Ler();
+
+                    if (configuracoes.DesabilitarDesligamento)
+                    {
+                        desligarNoFinal = false;
+                    }
+
                     List<string> retorno = Tarefas.Executar(configuracoes, desligarNoFinal);
                     if (retorno.Count > 0)
                     {

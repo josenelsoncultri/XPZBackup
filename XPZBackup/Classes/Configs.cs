@@ -22,6 +22,7 @@ namespace XPZBackup.Classes
         public string CaminhoSalvarXPZ { get; set; }
         public string CaminhoLocalBackup { get; set; }
         public int QuantidadeDiasBackup { get; set; }
+        public bool DesabilitarDesligamento { get; set; }
 
         public Configs()
         {
@@ -42,6 +43,7 @@ namespace XPZBackup.Classes
             this.CaminhoSalvarXPZ = "";
             this.CaminhoLocalBackup = "";
             this.QuantidadeDiasBackup = 15;
+            this.DesabilitarDesligamento = true;
         }
     }
 

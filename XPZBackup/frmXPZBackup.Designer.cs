@@ -54,6 +54,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtCaminhoSalvarXPZ = new System.Windows.Forms.TextBox();
             this.btnExecutarBackup = new System.Windows.Forms.Button();
+            this.chkDesabilitarDesligamento = new System.Windows.Forms.CheckBox();
             this.tabConfiguracoes.SuspendLayout();
             this.tabBases.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBases)).BeginInit();
@@ -261,6 +262,7 @@
             // 
             // tabOutrosParametros
             // 
+            this.tabOutrosParametros.Controls.Add(this.chkDesabilitarDesligamento);
             this.tabOutrosParametros.Controls.Add(this.label7);
             this.tabOutrosParametros.Controls.Add(this.txtDiasParaBackup);
             this.tabOutrosParametros.Controls.Add(this.label6);
@@ -342,6 +344,16 @@
             this.btnExecutarBackup.UseVisualStyleBackColor = true;
             this.btnExecutarBackup.Click += new System.EventHandler(this.btnExecutarBackup_Click);
             // 
+            // chkDesabilitarDesligamento
+            // 
+            this.chkDesabilitarDesligamento.AutoSize = true;
+            this.chkDesabilitarDesligamento.Location = new System.Drawing.Point(3, 157);
+            this.chkDesabilitarDesligamento.Name = "chkDesabilitarDesligamento";
+            this.chkDesabilitarDesligamento.Size = new System.Drawing.Size(246, 17);
+            this.chkDesabilitarDesligamento.TabIndex = 6;
+            this.chkDesabilitarDesligamento.Text = "Desabilitar desligamento ao término do backup";
+            this.chkDesabilitarDesligamento.UseVisualStyleBackColor = true;
+            // 
             // frmXPZBackup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -393,6 +405,7 @@
         private System.Windows.Forms.TextBox txtDiasParaBackup;
         private System.Windows.Forms.ComboBox cmbVersaoGeneXus;
         private System.Windows.Forms.Button btnTrocarVersao;
+        private System.Windows.Forms.CheckBox chkDesabilitarDesligamento;
     }
 }
 

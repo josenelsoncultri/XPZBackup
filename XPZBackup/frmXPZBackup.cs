@@ -59,6 +59,7 @@ namespace XPZBackup
             txtCaminhoSalvarXPZ.Text = configuracoes.CaminhoSalvarXPZ.Trim();
             txtCaminhoBackup.Text = configuracoes.CaminhoLocalBackup.Trim();
             txtDiasParaBackup.Text = configuracoes.QuantidadeDiasBackup.ToString().Trim();
+            chkDesabilitarDesligamento.Checked = configuracoes.DesabilitarDesligamento;
 
         }
 
@@ -95,6 +96,7 @@ namespace XPZBackup
             configuracoes.CaminhoSalvarXPZ = txtCaminhoSalvarXPZ.Text.Trim();
             configuracoes.CaminhoLocalBackup = txtCaminhoBackup.Text.Trim();
             configuracoes.QuantidadeDiasBackup = Convert.ToInt32(txtDiasParaBackup.Text.Trim());
+            configuracoes.DesabilitarDesligamento = chkDesabilitarDesligamento.Checked;
 
             ProcessadorXml.Salvar(configuracoes);
         }
@@ -188,8 +190,12 @@ namespace XPZBackup
         private void btnExecutarBackup_Click(object sender, EventArgs e)
         {
             DialogResult res = Common.Pergunta("O backup será iniciado, deseja desligar a máquina no final? (Clique em Cancelar para cancelar o backup)", true);
+            if (chkDesabilitarDesligamento.Checked)
+            {
+                res = Common.Pergunta("Deseja executar o backup?", false);
+            }
 
-            if (res != DialogResult.Cancel)
+            if (res != DialogResult.Cancel || (chkDesabilitarDesligamento.Checked && res == DialogResult.Yes))
             {
                 SalvarConfiguracoes();
                 List<string> retorno = Tarefas.Executar(configuracoes, res == DialogResult.Yes);

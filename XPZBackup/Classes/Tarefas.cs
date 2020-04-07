@@ -56,9 +56,12 @@ namespace XPZBackup.Classes
                     }
                 }
 
-                if (desligarNoFinal)
-                {
-                    Prompt.DesligarMaquina();
+                if (!configuracoes.DesabilitarDesligamento)
+                { 
+                    if (desligarNoFinal)
+                    {
+                        Prompt.DesligarMaquina();
+                    }
                 }
             }
 

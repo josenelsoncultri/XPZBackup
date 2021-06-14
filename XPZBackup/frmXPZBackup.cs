@@ -51,7 +51,7 @@ namespace XPZBackup
             }
         }
 
-        private void btnTrocarVersao_Click(object sender, EventArgs e)
+        private void btnTrocarDataProjetoBases_Click(object sender, EventArgs e)
         {
             frmVersao frm = new frmVersao();
             frm.ShowDialog();
@@ -189,7 +189,7 @@ namespace XPZBackup
 
             if (!retorno)
             {
-                Common.MensagemErro(mensagem);   
+                Common.MensagemErro(mensagem);
             }
 
             return retorno;
@@ -237,6 +237,23 @@ namespace XPZBackup
         private void frmXPZBackup_FormClosing(object sender, FormClosingEventArgs e)
         {
             SalvarConfiguracoes();
+        }
+
+        private void btnTrocarVersaoGeneXus_Click(object sender, EventArgs e)
+        {
+            frmAtualizarBases frm = new frmAtualizarBases();
+            frm.ShowDialog();
+
+            CarregarConfiguracoes();
+
+            cmbInstalacaoGeneXus.Items.Clear();
+
+            foreach (InstalacaoGeneXus i in Common.IdentificarInstalacoesGeneXus())
+            {
+                cmbInstalacaoGeneXus.Items.Add(i.NomePasta);
+            }
+
+            CarregarGrid();
         }
     }
 }

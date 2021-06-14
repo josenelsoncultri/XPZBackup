@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmXPZBackup));
             this.tabConfiguracoes = new System.Windows.Forms.TabControl();
             this.tabBases = new System.Windows.Forms.TabPage();
-            this.btnTrocarVersao = new System.Windows.Forms.Button();
+            this.btnTrocarDataProjetoBases = new System.Windows.Forms.Button();
             this.cmbInstalacaoGeneXus = new System.Windows.Forms.ComboBox();
             this.chkBackupKBInteira = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -55,6 +55,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtCaminhoSalvarXPZ = new System.Windows.Forms.TextBox();
             this.btnExecutarBackup = new System.Windows.Forms.Button();
+            this.btnTrocarVersaoGeneXus = new System.Windows.Forms.Button();
             this.tabConfiguracoes.SuspendLayout();
             this.tabBases.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBases)).BeginInit();
@@ -78,7 +79,8 @@
             // 
             // tabBases
             // 
-            this.tabBases.Controls.Add(this.btnTrocarVersao);
+            this.tabBases.Controls.Add(this.btnTrocarVersaoGeneXus);
+            this.tabBases.Controls.Add(this.btnTrocarDataProjetoBases);
             this.tabBases.Controls.Add(this.cmbInstalacaoGeneXus);
             this.tabBases.Controls.Add(this.chkBackupKBInteira);
             this.tabBases.Controls.Add(this.label4);
@@ -93,16 +95,16 @@
             this.tabBases.Text = "Configurações das bases";
             this.tabBases.UseVisualStyleBackColor = true;
             // 
-            // btnTrocarVersao
+            // btnTrocarDataProjetoBases
             // 
-            this.btnTrocarVersao.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnTrocarVersao.Location = new System.Drawing.Point(740, 392);
-            this.btnTrocarVersao.Name = "btnTrocarVersao";
-            this.btnTrocarVersao.Size = new System.Drawing.Size(163, 27);
-            this.btnTrocarVersao.TabIndex = 5;
-            this.btnTrocarVersao.Text = "Trocar versão das bases";
-            this.btnTrocarVersao.UseVisualStyleBackColor = true;
-            this.btnTrocarVersao.Click += new System.EventHandler(this.btnTrocarVersao_Click);
+            this.btnTrocarDataProjetoBases.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnTrocarDataProjetoBases.Location = new System.Drawing.Point(695, 392);
+            this.btnTrocarDataProjetoBases.Name = "btnTrocarDataProjetoBases";
+            this.btnTrocarDataProjetoBases.Size = new System.Drawing.Size(208, 27);
+            this.btnTrocarDataProjetoBases.TabIndex = 5;
+            this.btnTrocarDataProjetoBases.Text = "Trocar data do projeto das bases";
+            this.btnTrocarDataProjetoBases.UseVisualStyleBackColor = true;
+            this.btnTrocarDataProjetoBases.Click += new System.EventHandler(this.btnTrocarDataProjetoBases_Click);
             // 
             // cmbInstalacaoGeneXus
             // 
@@ -354,6 +356,17 @@
             this.btnExecutarBackup.UseVisualStyleBackColor = true;
             this.btnExecutarBackup.Click += new System.EventHandler(this.btnExecutarBackup_Click);
             // 
+            // btnTrocarVersaoGeneXus
+            // 
+            this.btnTrocarVersaoGeneXus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnTrocarVersaoGeneXus.Location = new System.Drawing.Point(481, 392);
+            this.btnTrocarVersaoGeneXus.Name = "btnTrocarVersaoGeneXus";
+            this.btnTrocarVersaoGeneXus.Size = new System.Drawing.Size(208, 27);
+            this.btnTrocarVersaoGeneXus.TabIndex = 6;
+            this.btnTrocarVersaoGeneXus.Text = "Trocar versão do GeneXus das bases";
+            this.btnTrocarVersaoGeneXus.UseVisualStyleBackColor = true;
+            this.btnTrocarVersaoGeneXus.Click += new System.EventHandler(this.btnTrocarVersaoGeneXus_Click);
+            // 
             // frmXPZBackup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -404,8 +417,9 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtDiasParaBackup;
         private System.Windows.Forms.ComboBox cmbInstalacaoGeneXus;
-        private System.Windows.Forms.Button btnTrocarVersao;
+        private System.Windows.Forms.Button btnTrocarDataProjetoBases;
         private System.Windows.Forms.CheckBox chkDesabilitarDesligamento;
+        private System.Windows.Forms.Button btnTrocarVersaoGeneXus;
     }
 }
 

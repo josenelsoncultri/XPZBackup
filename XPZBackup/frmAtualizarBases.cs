@@ -32,7 +32,7 @@ namespace XPZBackup
                 DataGridViewComboBoxColumn colVersaoGeneXus = new DataGridViewComboBoxColumn()
                 {
                     Name = "VersaoGeneXus",
-                    Width = 400,
+                    Width = 200,
                     HeaderText = "Versão do GeneXus",
                 };
 

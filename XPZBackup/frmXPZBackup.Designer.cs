@@ -32,7 +32,7 @@
             this.tabConfiguracoes = new System.Windows.Forms.TabControl();
             this.tabBases = new System.Windows.Forms.TabPage();
             this.btnTrocarVersao = new System.Windows.Forms.Button();
-            this.cmbVersaoGeneXus = new System.Windows.Forms.ComboBox();
+            this.cmbInstalacaoGeneXus = new System.Windows.Forms.ComboBox();
             this.chkBackupKBInteira = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtBaseParaAdicionar = new System.Windows.Forms.TextBox();
@@ -47,6 +47,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtServidor = new System.Windows.Forms.TextBox();
             this.tabOutrosParametros = new System.Windows.Forms.TabPage();
+            this.chkDesabilitarDesligamento = new System.Windows.Forms.CheckBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtDiasParaBackup = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -54,7 +55,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtCaminhoSalvarXPZ = new System.Windows.Forms.TextBox();
             this.btnExecutarBackup = new System.Windows.Forms.Button();
-            this.chkDesabilitarDesligamento = new System.Windows.Forms.CheckBox();
             this.tabConfiguracoes.SuspendLayout();
             this.tabBases.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBases)).BeginInit();
@@ -79,7 +79,7 @@
             // tabBases
             // 
             this.tabBases.Controls.Add(this.btnTrocarVersao);
-            this.tabBases.Controls.Add(this.cmbVersaoGeneXus);
+            this.tabBases.Controls.Add(this.cmbInstalacaoGeneXus);
             this.tabBases.Controls.Add(this.chkBackupKBInteira);
             this.tabBases.Controls.Add(this.label4);
             this.tabBases.Controls.Add(this.txtBaseParaAdicionar);
@@ -104,18 +104,18 @@
             this.btnTrocarVersao.UseVisualStyleBackColor = true;
             this.btnTrocarVersao.Click += new System.EventHandler(this.btnTrocarVersao_Click);
             // 
-            // cmbVersaoGeneXus
+            // cmbInstalacaoGeneXus
             // 
-            this.cmbVersaoGeneXus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.cmbVersaoGeneXus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbVersaoGeneXus.FormattingEnabled = true;
-            this.cmbVersaoGeneXus.Items.AddRange(new object[] {
+            this.cmbInstalacaoGeneXus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.cmbInstalacaoGeneXus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbInstalacaoGeneXus.FormattingEnabled = true;
+            this.cmbInstalacaoGeneXus.Items.AddRange(new object[] {
             "GeneXus 15",
             "GeneXus 16"});
-            this.cmbVersaoGeneXus.Location = new System.Drawing.Point(142, 367);
-            this.cmbVersaoGeneXus.Name = "cmbVersaoGeneXus";
-            this.cmbVersaoGeneXus.Size = new System.Drawing.Size(121, 21);
-            this.cmbVersaoGeneXus.TabIndex = 4;
+            this.cmbInstalacaoGeneXus.Location = new System.Drawing.Point(142, 367);
+            this.cmbInstalacaoGeneXus.Name = "cmbInstalacaoGeneXus";
+            this.cmbInstalacaoGeneXus.Size = new System.Drawing.Size(185, 21);
+            this.cmbInstalacaoGeneXus.TabIndex = 4;
             // 
             // chkBackupKBInteira
             // 
@@ -276,6 +276,16 @@
             this.tabOutrosParametros.Text = "Outros parâmetros";
             this.tabOutrosParametros.UseVisualStyleBackColor = true;
             // 
+            // chkDesabilitarDesligamento
+            // 
+            this.chkDesabilitarDesligamento.AutoSize = true;
+            this.chkDesabilitarDesligamento.Location = new System.Drawing.Point(3, 157);
+            this.chkDesabilitarDesligamento.Name = "chkDesabilitarDesligamento";
+            this.chkDesabilitarDesligamento.Size = new System.Drawing.Size(246, 17);
+            this.chkDesabilitarDesligamento.TabIndex = 6;
+            this.chkDesabilitarDesligamento.Text = "Desabilitar desligamento ao término do backup";
+            this.chkDesabilitarDesligamento.UseVisualStyleBackColor = true;
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -344,16 +354,6 @@
             this.btnExecutarBackup.UseVisualStyleBackColor = true;
             this.btnExecutarBackup.Click += new System.EventHandler(this.btnExecutarBackup_Click);
             // 
-            // chkDesabilitarDesligamento
-            // 
-            this.chkDesabilitarDesligamento.AutoSize = true;
-            this.chkDesabilitarDesligamento.Location = new System.Drawing.Point(3, 157);
-            this.chkDesabilitarDesligamento.Name = "chkDesabilitarDesligamento";
-            this.chkDesabilitarDesligamento.Size = new System.Drawing.Size(246, 17);
-            this.chkDesabilitarDesligamento.TabIndex = 6;
-            this.chkDesabilitarDesligamento.Text = "Desabilitar desligamento ao término do backup";
-            this.chkDesabilitarDesligamento.UseVisualStyleBackColor = true;
-            // 
             // frmXPZBackup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -403,7 +403,7 @@
         private System.Windows.Forms.TextBox txtCaminhoBackup;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtDiasParaBackup;
-        private System.Windows.Forms.ComboBox cmbVersaoGeneXus;
+        private System.Windows.Forms.ComboBox cmbInstalacaoGeneXus;
         private System.Windows.Forms.Button btnTrocarVersao;
         private System.Windows.Forms.CheckBox chkDesabilitarDesligamento;
     }

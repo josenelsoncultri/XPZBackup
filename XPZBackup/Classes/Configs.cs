@@ -13,6 +13,7 @@ namespace XPZBackup.Classes
     public class Configs
     {
         public List<Base> Bases { get; set; }
+        public List<InstalacaoGeneXus> InstalacoesGeneXus { get; set; }
 
         public string Servidor { get; set; }
         public string Usuario { get; set; }
@@ -27,6 +28,7 @@ namespace XPZBackup.Classes
         public Configs()
         {
             this.Bases = new List<Base>();
+            this.InstalacoesGeneXus = new List<InstalacaoGeneXus>();
 
             try
             {
@@ -52,5 +54,11 @@ namespace XPZBackup.Classes
         public string Caminho { get; set; }
         public bool BackupKBInteira { get; set; }
         public string VersaoGeneXus { get; set; }
+    }
+
+    public class InstalacaoGeneXus
+    {
+        public string Caminho { get; set; }
+        public string NomePasta { get; set; }
     }
 }

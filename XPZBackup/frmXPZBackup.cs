@@ -23,7 +23,32 @@ namespace XPZBackup
         {
             InitializeComponent();
             CarregarConfiguracoes();
+            ChecarInstalacoesGeneXus();
             CarregarGrid();
+        }
+
+        private void ChecarInstalacoesGeneXus()
+        {
+            List<InstalacaoGeneXus> InstalacoesAtuais = Common.IdentificarInstalacoesGeneXus();
+            List<InstalacaoGeneXus> InstalacoesSalvasNoXml = configuracoes.InstalacoesGeneXus;
+
+            if (!Common.InstalacoesIguais(InstalacoesAtuais, InstalacoesSalvasNoXml))
+            {
+                Common.MensagemInfo("Foi identificado que houve uma mudança nas instalações do GeneXus! Devido a isso, será necessário atualizar as propriedades das KBs configuradas!");
+
+                //Chamar formulário para reconfigurar as KBs
+                frmAtualizarBases frm = new frmAtualizarBases();
+                frm.ShowDialog();
+
+                CarregarConfiguracoes();
+            }
+
+            cmbInstalacaoGeneXus.Items.Clear();
+
+            foreach (InstalacaoGeneXus i in InstalacoesAtuais)
+            {
+                cmbInstalacaoGeneXus.Items.Add(i.NomePasta);
+            }
         }
 
         private void btnTrocarVersao_Click(object sender, EventArgs e)
@@ -117,7 +142,7 @@ namespace XPZBackup
                 {
                     Caminho = txtBaseParaAdicionar.Text.Trim() + (txtBaseParaAdicionar.Text.Trim().EndsWith(@"\") ? "" : @"\"),
                     BackupKBInteira = chkBackupKBInteira.Checked,
-                    VersaoGeneXus = cmbVersaoGeneXus.Text.Trim()
+                    VersaoGeneXus = cmbInstalacaoGeneXus.Text.Trim()
                 };
 
                 configuracoes.Bases.Add(b);
@@ -156,7 +181,7 @@ namespace XPZBackup
                 }
             }
 
-            if (cmbVersaoGeneXus.Text == "")
+            if (cmbInstalacaoGeneXus.Text == "")
             {
                 mensagem += "Selecione a versão do GeneXus para essa base!" + Environment.NewLine;
                 retorno = false;

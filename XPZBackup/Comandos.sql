@@ -4,7 +4,20 @@ AS (
 	INNER JOIN <BANCO_DADOS>.dbo.EntityType ET ON (ET.EntityTypeId = EV.EntityTypeId)
 	INNER JOIN <BANCO_DADOS>.dbo.Entity E ON (E.EntityTypeId = EV.EntityTypeId AND E.EntityId = EV.EntityId AND E.EntityLastVersionId = EV.EntityVersionId)
 	WHERE SUBSTRING(EntityVersionName, 1, 3) NOT IN ('Audit')
-	AND EntityVersionTimestamp BETWEEN CONVERT(DATETIME, CONVERT(VARCHAR(10), GETDATE() - <QUANTIDADE_DIAS_BACKUP>, 103) + ' 00:00:00') AND CONVERT(DATETIME, (CONVERT(VARCHAR(10), GETDATE(), 103) + ' 23:59:59'))
+	AND EntityVersionTimestamp BETWEEN 
+	DATETIME2FROMPARTS(
+		DATEPART(YEAR, GETDATE() - 15), 
+		DATEPART(MONTH, GETDATE() - 15),
+		DATEPART(DAY, GETDATE() - 15),
+		0, 0, 0, 0, 0
+	)
+	AND 
+	DATETIME2FROMPARTS(
+		DATEPART(YEAR, GETDATE()), 
+		DATEPART(MONTH, GETDATE()),
+		DATEPART(DAY, GETDATE()),
+		23, 59, 59, 0, 0
+	)
 	AND ET.EntityTypeName NOT IN 
 		(
 			'Environments', 'DataStores', 'TranslationMessage', 'ThemeColor', 'ThemeColors', 'ColorPalette', 'Documentation', 'Help', 'MissingKBObject', 'WikiBlob',
@@ -28,7 +41,20 @@ SELECT STUFF(
 			INNER JOIN <BANCO_DADOS>.dbo.EntityType ET ON (ET.EntityTypeId = EV.EntityTypeId)
 			INNER JOIN <BANCO_DADOS>.dbo.Entity E ON (E.EntityTypeId = EV.EntityTypeId AND E.EntityId = EV.EntityId AND E.EntityLastVersionId = EV.EntityVersionId)
 			WHERE SUBSTRING(EntityVersionName, 1, 3) NOT IN ('Audit')
-			AND EntityVersionTimestamp BETWEEN CONVERT(DATETIME, CONVERT(VARCHAR(10), GETDATE() - <QUANTIDADE_DIAS_BACKUP>, 103) + ' 00:00:00') AND CONVERT(DATETIME, (CONVERT(VARCHAR(10), GETDATE(), 103) + ' 23:59:59'))
+			AND EntityVersionTimestamp BETWEEN 
+			DATETIME2FROMPARTS(
+				DATEPART(YEAR, GETDATE() - 15), 
+				DATEPART(MONTH, GETDATE() - 15),
+				DATEPART(DAY, GETDATE() - 15),
+				0, 0, 0, 0, 0
+			)
+			AND 
+			DATETIME2FROMPARTS(
+				DATEPART(YEAR, GETDATE()), 
+				DATEPART(MONTH, GETDATE()),
+				DATEPART(DAY, GETDATE()),
+				23, 59, 59, 0, 0
+			)
 			AND ET.EntityTypeName = TipoDado
 			AND EV.EntityVersionName NOT IN 
 			(

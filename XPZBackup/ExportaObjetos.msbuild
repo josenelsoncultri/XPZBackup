@@ -1,5 +1,5 @@
 <Project DefaultTargets="Exportar" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-	<Import Project="C:\Program Files (x86)\GeneXus\GeneXus15_U10_K2B_126129\Genexus.Tasks.targets" />	
+	<Import Project="C:\Program Files (x86)\GeneXus\$(InstalacaoGeneXus)\Genexus.Tasks.targets" />	
 	<PropertyGroup>
 		<CaminhoKB>.</CaminhoKB>
 		<CaminhoXPZ>.</CaminhoXPZ>

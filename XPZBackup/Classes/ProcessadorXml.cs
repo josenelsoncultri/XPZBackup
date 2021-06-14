@@ -40,6 +40,11 @@ namespace XPZBackup.Classes
                 configuracoes.Bases = new List<Base>();
             }
 
+            if (configuracoes.InstalacoesGeneXus == null)
+            {
+                configuracoes.InstalacoesGeneXus = new List<InstalacaoGeneXus>();
+            }
+
             return configuracoes;
         }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -19,25 +20,12 @@ namespace XPZBackup.Classes
             }
         }
 
-        public static string CaminhoScriptMSBUILD(string VersaoGeneXus)
+        public static string CaminhoScriptMSBUILD
         {
-            string retorno = "";
-
-            retorno += Application.StartupPath + (Application.StartupPath.EndsWith(@"\") ? "" : @"\");
-            switch (VersaoGeneXus)
+            get
             {
-                case "GeneXus 16":
-                    retorno += "ExportaObjetosGX16.msbuild";
-
-                    break;
-                case "GeneXus 15":
-                default:
-                    retorno += "ExportaObjetosGX15.msbuild";
-
-                    break;
+                return "ExportaObjetos.msbuild";
             }
-
-            return retorno;
         }
 
         /*public static string CaminhoRede 
@@ -93,6 +81,73 @@ namespace XPZBackup.Classes
             retorno += DateTime.Now.Hour.ToString().PadLeft(2, '0');
             retorno += DateTime.Now.Minute.ToString().PadLeft(2, '0');
             retorno += ".xpz";
+
+            return retorno;
+        }
+
+        public static List<InstalacaoGeneXus> IdentificarInstalacoesGeneXus()
+        {
+            List<InstalacaoGeneXus> retorno = new List<InstalacaoGeneXus>();
+
+            string caminhoRaizGeneXus = @"C:\Program Files (x86)\GeneXus\";
+
+            foreach (string d in Directory.GetDirectories(caminhoRaizGeneXus))
+            {
+                InstalacaoGeneXus instalacao = new InstalacaoGeneXus();
+                instalacao.Caminho = d;
+                instalacao.NomePasta = new DirectoryInfo(d).Name;
+
+                retorno.Add(instalacao);
+            }
+
+            return retorno;
+        }
+
+        public static bool InstalacoesIguais(List<InstalacaoGeneXus> lista1, List<InstalacaoGeneXus> lista2)
+        {
+            bool retorno = true;
+
+            bool encontrou = false;
+            foreach (InstalacaoGeneXus i1 in lista1)
+            {
+                encontrou = false;
+                foreach (InstalacaoGeneXus i2 in lista2)
+                {
+                    if (i2.Caminho == i1.Caminho && i2.NomePasta == i1.NomePasta)
+                    {
+                        encontrou = true;
+                        break;
+                    }
+                }
+
+                if (!encontrou)
+                {
+                    retorno = false;
+                    break;
+                }
+            }
+
+            if (retorno)
+            {
+                foreach (InstalacaoGeneXus i1 in lista2)
+                {
+                    encontrou = false;
+                    foreach (InstalacaoGeneXus i2 in lista1)
+                    {
+                        if (i2.Caminho == i1.Caminho && i2.NomePasta == i1.NomePasta)
+                        {
+                            encontrou = true;
+                            break;
+                        }
+                    }
+
+                    if (!encontrou)
+                    {
+                        retorno = false;
+                        break;
+                    }
+                }
+            }
 
             return retorno;
         }

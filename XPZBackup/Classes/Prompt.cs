@@ -18,10 +18,11 @@ namespace XPZBackup.Classes
             //caminhoXPZ += Common.NomeXPZ(configuracoes.NomeProgramador, ProcessadorXml.ObterNomeBanco(b.Caminho));
             caminhoXPZ += Common.NomeXPZ(ProcessadorXml.ObterNomeBanco(b.Caminho));
 
+            string argumentos = "\"" + Common.CaminhoScriptMSBUILD + "\"" + " /p:InstalacaoGenexus=\"" + b.VersaoGeneXus + "\";CaminhoXPZ=" + caminhoXPZ.Trim() + ";CaminhoKB=" + b.Caminho.Trim() + ";ExportarTudo=" + b.BackupKBInteira.ToString().Trim() + (listaObjetos.Trim() != "" ? ";ListaObjetos=\"" + listaObjetos.Trim() + "\"" : "");
             ProcessStartInfo psi = new ProcessStartInfo
             {
                 FileName = Common.CaminhoMSBUILD,
-                Arguments = "\"" + Common.CaminhoScriptMSBUILD(b.VersaoGeneXus) + "\"" + " /p:CaminhoXPZ=" + caminhoXPZ.Trim() + ";CaminhoKB=" + b.Caminho.Trim() + ";ExportarTudo=" + b.BackupKBInteira.ToString().Trim() + (listaObjetos.Trim() != "" ? ";ListaObjetos=\"" + listaObjetos.Trim() + "\"" : "")
+                Arguments = argumentos
             };
             Process.Start(psi).WaitForExit();
 

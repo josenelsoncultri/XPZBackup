@@ -56,6 +56,12 @@
     <Compile Include="Classes\DataBase.cs" />
     <Compile Include="Classes\Prompt.cs" />
     <Compile Include="Classes\Tarefas.cs" />
+    <Compile Include="frmAtualizarBases.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAtualizarBases.Designer.cs">
+      <DependentUpon>frmAtualizarBases.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmVersao.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +77,9 @@
     <Compile Include="Classes\ProcessadorXml.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmAtualizarBases.resx">
+      <DependentUpon>frmAtualizarBases.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmVersao.resx">
       <DependentUpon>frmVersao.cs</DependentUpon>
     </EmbeddedResource>
@@ -86,10 +95,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="ExportaObjetosGX15.msbuild">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="ExportaObjetosGX16.msbuild">
+    <None Include="ExportaObjetos.msbuild">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Properties\Settings.settings">
